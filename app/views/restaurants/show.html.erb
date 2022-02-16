@@ -1,0 +1,18 @@
+<h2><%= @restaurant.name %></h2>
+<p>Address: <%= @restaurant.address %></p>
+<p>Phone Number: <%= @restaurant.phone_number %></p>
+<p>Category: <%= @restaurant.category.capitalize %></p>
+
+
+<h4>Reviews</h4>
+<% @restaurant.reviews.each do |review| %>
+<div class="border p-2">
+<p>Rating: <%= review.rating %>/5</p>
+<p>Comments: <%= review.content %></p>
+</div>
+<% end %>
+
+<%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: 'btn btn-success mt-3' %>
+
+
+<%= link_to "Return to list of restaurants", restaurants_path, class: 'btn btn-secondary mt-3' %>
